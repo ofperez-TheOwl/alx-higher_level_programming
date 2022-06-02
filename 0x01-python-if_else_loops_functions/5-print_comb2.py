@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for i in range(0, 99):
-    print("{}".format(i), end=', ')
-print("{}".format(i + 1))
+    print("{0:0>2d}".format(i), end=', ')
+print("{0:>2d}".format(i + 1))
