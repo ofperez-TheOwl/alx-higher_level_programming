@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for i in range(0, 99):
-    print(f"{i:d}", end=', ')
-print(f"{i + 1:d}")
+    print("{}".format(i), end=', ')
+print("{}".format(i + 1))
