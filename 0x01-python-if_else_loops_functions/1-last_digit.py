@@ -10,5 +10,5 @@ if (number == 0):
     print("and is zero")
 elif (number > 5):
     print("and is greater than 5")
-else :
+else:
     print("and is less than 6 and not 0")
