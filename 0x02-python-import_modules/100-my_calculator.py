@@ -6,7 +6,7 @@ if (__name__ == "__main__"):
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         i = 1
     else:
-        arg= sys.argv
+        arg = sys.argv
         a, b = int(arg[1]), int(arg[3])
         if (arg[2] == '+'):
             print("{:d} + {:d} = {}".format(a, b, add(a, b)))
