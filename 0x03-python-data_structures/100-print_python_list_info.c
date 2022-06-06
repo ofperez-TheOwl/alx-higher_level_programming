@@ -1,5 +1,4 @@
-#include "Python.h"
-#include "lists.h"
+#include <Python.h>
 #include <stdio.h>
 
 /**
@@ -10,15 +9,17 @@
  */
 void print_python_list_info(PyObject *p)
 {
-	int i = 0;
-	int j = 0;
+	Py_ssize_t i = 0;
+	Py_ssize_t j, k;
 	PyObject *tmp;
 
 	if (PyList_CheckExact(p) != 0) /* check if p is a list */
 	{
 		/* find and print number of element in p */
 		j = PyList_Size(p);
-		printf("[*] Size of the Python List = %d\n", j);
+		k = ((PyListObject *)p)->allocated;
+		printf("[*] Size of the Python List = %ld\n", j);
+		printf("[*] Allocated  = %ld\n", k);
 		if (j == 0)
 			printf("Element 0: 0\n");
 		else
@@ -27,7 +28,7 @@ void print_python_list_info(PyObject *p)
 			{
 			/* find type of element at index i */
 				tmp = PyList_GetItem(p, i);
-				printf("Element %d: %s\n", i, ((Py_TYPE(tmp))->tp_name));
+				printf("Element %ld: %s\n", i, ((Py_TYPE(tmp))->tp_name));
 				i++;
 			}
 	}
