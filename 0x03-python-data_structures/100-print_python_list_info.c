@@ -21,14 +21,16 @@ void print_python_list_info(PyObject *p)
 		printf("[*] Allocated  = %ld\n", k);
 		if (j == 0)
 			printf("Element 0: 0\n");
-		else
+//		else
+//		{
 		/* print the type of each element of the p */
-			while (i < j)
-			{
+//			while (i < j)
+//			{
 			/* find type of element at index i */
-				tmp = PyList_GetItem(p, i);
-				printf("Element %ld: %s\n", i, ((PY_TYPE(tmp))->tp_name));
-				i++;
-			}
+//				tmp = PyList_GetItem(p, i);
+//				printf("Element %ld: %s\n", i, ((Py_TYPE(tmp))->tp_name));
+//				i++;
+//			}
+//		}
 	}
 }
