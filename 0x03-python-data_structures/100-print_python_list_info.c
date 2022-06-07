@@ -1,5 +1,4 @@
 #include <Python.h>
-#define Py_TYPE(o) (((PyObject*)(o))->ob_type)
 
 /**
  * print_python_list_info - printbasic info about Python lists
