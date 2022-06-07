@@ -28,7 +28,7 @@ void print_python_list_info(PyObject *p)
 			{
 			/* find type of element at index i */
 				tmp = PyList_GetItem(p, i);
-				printf("Element %ld: %s\n", i, ((Py_TYPE(tmp))->tp_name));
+				printf("Element %ld: %s\n", i, Py_TYPE(tmp)->tp_name);
 				i++;
 			}
 	}
