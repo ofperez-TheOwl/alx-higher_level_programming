@@ -8,9 +8,9 @@
  */
 void print_python_list_info(PyObject *p)
 {
-	Py_ssize_t i = 0;
+//	Py_ssize_t i = 0;
 	Py_ssize_t j, k;
-	PyObject *tmp;
+//	PyObject *tmp;
 
 	if (PyList_CheckExact(p) != 0) /* check if p is a list */
 	{
