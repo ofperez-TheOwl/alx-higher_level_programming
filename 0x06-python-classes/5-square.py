@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Module 4-square
+Module 5-square
 Defines class Square with private size and public area
 Can access and update size
+Can print Square with '#' as unit
 """
 
 
@@ -16,6 +17,7 @@ class Square:
         size(self)
         size(self, value)
         area(self)
+        my_print(self)
     """
     def __init__(self, size=0):
         """Initialization of the size of square
@@ -47,8 +49,15 @@ class Square:
 
     def area(self):
         """Returns the current area's square
-
-        Returns:
-            always area of square
+            Return:
+                area
         """
         return (self.__size**2)
+    def my_print(self):
+        """Prints Square image with '#'
+        """
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(self.__size):
+                print(self.__size * "#")
