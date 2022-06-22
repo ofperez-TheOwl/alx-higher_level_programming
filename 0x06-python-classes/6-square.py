@@ -46,8 +46,6 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            print(self.__size)
-            print(self.__position)
             self.__size = value
 
     @property
@@ -79,8 +77,6 @@ class Square:
     def my_print(self):
         """Prints Square image with '#'
         """
-        print(self.__size)
-        print(self.__position)
         if self.__size == 0:
             print()
         else:
