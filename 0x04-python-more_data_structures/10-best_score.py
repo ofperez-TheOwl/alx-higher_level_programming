@@ -4,7 +4,7 @@
 
 
 def best_score(a_dictionary):
-    if a_dictionary == None or a_dictionary == { }:
+    if a_dictionary is None or a_dictionary == {}:
         return (None)
     item = [a_dictionary[i] for i in sorted(a_dictionary)]
     item = sorted(item)
