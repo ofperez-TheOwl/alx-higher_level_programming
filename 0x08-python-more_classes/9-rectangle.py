@@ -57,8 +57,8 @@ class Rectangle():
             width (int): size of the horizontal side of Rectangle
             height (int): size of the vertical side of Rectangle
         """
-        self.height = height
         self.width = width
+        self.height = height
         type(self).number_of_instances = type(self).number_of_instances + 1
 
     @property
@@ -145,15 +145,15 @@ class Rectangle():
         if (type(rect_1) is not Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if (type(rect_2) is not Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle")
         if (rect_1.area() < rect_2.area()):
             return (rect_2)
         return (rect_1)
 
     @classmethod
     def square(cls, size=0):
-        """Create a square of side size
+        """Create a square that is a rectangle with width = height = size
             Args:
             size (int) : length of the side of square
         """
-        return (Rectangle(size, size))
+        return (cls(size, size))
