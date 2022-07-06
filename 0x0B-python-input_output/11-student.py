@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-Module 12-student
-Contains class Student
+"""Module : 11-student
+Defines class Student
 that initializes public instance attributes first_name, last_name, and age,
 and has public method to_json that returns dictionary representation
 of requested attributes or all if none were requested

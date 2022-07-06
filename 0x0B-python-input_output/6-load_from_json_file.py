@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Module 8-load_from_json_file
+"""Module : 6-load_from_json_file
 Contains function that creates a Python obj from JSON file
 """
 
@@ -8,7 +7,7 @@ Contains function that creates a Python obj from JSON file
 def load_from_json_file(filename):
     """Creates a Python obj from JSON file
     Args:
-        filename: file
+        filename (str): name of file
     """
     import json
 
