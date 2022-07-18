@@ -16,7 +16,7 @@ int check_cycle(listint_t *list)
 	if (list == NULL || list->next == NULL || list->next->next == NULL)
 		return (0);
 
-	while (tmp_fast->next->next != NULL)
+	while (tmp_fast->next != NULL)
 	{
 		tmp_slow = tmp_slow->next;
 		tmp_fast = tmp_fast->next->next;
