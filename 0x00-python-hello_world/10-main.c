@@ -18,7 +18,7 @@ int main(void)
 	int i;
 
 	head = NULL;
-	for (i = 0; i < 1001; i++)
+	for (i = 0; i < 101; i++)
 		add_nodeint(&head, i);
 
 	start = clock();
