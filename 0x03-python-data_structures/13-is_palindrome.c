@@ -2,56 +2,82 @@
 #include <stdlib.h>
 
 /**
+ * add_nodeint - add a new node at the begining of the list of listint_t
+ * @head: listint_t pointer to pointer; head of the list of listint_t
+ * @n: const int; int data of the new node
+ *
+ * Return: pointer to listint_t if success or NULL if not
+ * TheOwl
+ */
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	/* set values of new node */
+	new->n = n;
+	if (*head == NULL)
+		new->next = NULL;
+	else
+		new->next = *head;
+	*head = new;
+
+	return (new);
+}
+
+/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: listint_t pointer to pointer; list
  *
  * Return: int; 1 if palindrome 0 if not
  *
- * Description: this algorithm divide the list in two part by the middle
- * the nodes of the right part are read in order and traversed only one time
- * the nodes of the left part are read in reverse order and traversed many time
+ * Description: this algorithm creates another singly linked list
+ * that will be used as a stack (LIFO) for the first half of orignal
+ * list and will be compared to the second part of original list 
  * TheOwl
  */
 int is_palindrome(listint_t **head)
 {
 	int i, len = 1;
-	listint_t *tmp, *tmp_end = *head, *tmp_l = *head, *tmp_r = *head;
+	listint_t **stack, *tmp = *head, *tmp_s = NULL;
 	/* traverse list check if first and last node are the same */
-	if (tmp_end == NULL || tmp_end->next == NULL)
+	if (tmp == NULL || tmp->next == NULL)
 		return (1);
-	while (tmp_end->next != NULL)
+	while (tmp->next != NULL)
 	{
 		len++;
-		tmp_end = tmp_end->next;
+		tmp = tmp->next;
 	}
-	if (tmp_l->n != tmp_end->n)
+	if ((*head)->n != tmp->n)
 		return (0);
 	if (len < 4)
 		return (1);
-	/* divide list in 2 part, set variables before checking other nodes */
-	if (len % 2 == 0)
+	/* create stack */
+	stack = &tmp_s;
+	tmp = *head;
+	for (i = 0; i < len / 2; i++)
 	{
-		len = len / 2;
-		for (i = 0; i < len - 1; i++)
-			tmp_l = tmp_l->next;
-	}
-	else
-	{
-		len = len / 2 + 1;
-		for (i = 0; i < len - 2; i++)
-			tmp_l = tmp_l->next;
-	}
-	for (i = 0; i < len; i++)
-		tmp_r = tmp_r->next;
-	/* checking nodes of of right part are the same as nodes of left part*/
-	while (tmp_r != tmp_end)
-	{
-		if (tmp_r->n != tmp_l->n)
+		tmp_s = add_nodeint(stack, tmp->n);
+		if (tmp_s == NULL)
 			return (0);
-		tmp_r = tmp_r->next;
-		for (tmp = *head; tmp->next != tmp_l;)
-			tmp = tmp->next;
-		tmp_l = tmp;
+		tmp = tmp->next;
 	}
+	if (len % 2 != 0)
+		tmp = tmp->next;
+	tmp_s = *stack;
+	/* check if second part of list is same as stack*/
+	while (tmp != NULL)
+	{
+		if (tmp_s->n != tmp->n)
+		{
+			free_listint(*stack);
+			return (0);
+		}
+		tmp = tmp->next;
+		tmp_s = tmp_s->next;
+	}
+	free_listint(*stack);
 	return (1);
 }
