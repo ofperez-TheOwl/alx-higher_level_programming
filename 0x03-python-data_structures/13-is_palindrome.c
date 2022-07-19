@@ -9,17 +9,16 @@
  *
  * Description: this algorithm divide the list in two part by the middle
  * the nodes of the right part are read in order and traversed only one time
- * the nodes of the left part are read in reverse order and traversed many times
+ * the nodes of the left part are read in reverse order and traversed many time
  * TheOwl
  */
 int is_palindrome(listint_t **head)
 {
 	int i, len = 1;
 	listint_t *tmp, *tmp_end = *head, *tmp_l = *head, *tmp_r = *head;
-
-	if (tmp_end == NULL)
-		return (1);
 	/* traverse list check if first and last node are the same */
+	if (tmp_end == NULL || tmp_end->next == NULL)
+		return (1);
 	while (tmp_end->next != NULL)
 	{
 		len++;
@@ -27,6 +26,8 @@ int is_palindrome(listint_t **head)
 	}
 	if (tmp_l->n != tmp_end->n)
 		return (0);
+	if (len < 4)
+		return (1);
 	/* divide list in 2 part, set variables before checking other nodes */
 	if (len % 2 == 0)
 	{
