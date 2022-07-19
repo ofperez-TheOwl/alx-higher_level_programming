@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -41,7 +42,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
 int is_palindrome(listint_t **head)
 {
 	int i, len = 1;
-	listint_t **stack, *tmp = *head, *tmp_s = NULL;
+	listint_t *stack, *tmp = *head, *tmp_s = NULL;
 	/* traverse list check if first and last node are the same */
 	if (tmp == NULL || tmp->next == NULL)
 		return (1);
@@ -55,29 +56,28 @@ int is_palindrome(listint_t **head)
 	if (len < 4)
 		return (1);
 	/* create stack */
-	stack = &tmp_s;
 	tmp = *head;
 	for (i = 0; i < len / 2; i++)
 	{
-		tmp_s = add_nodeint(stack, tmp->n);
+		tmp_s = add_nodeint(&tmp_s, tmp->n);
 		if (tmp_s == NULL)
 			return (0);
 		tmp = tmp->next;
 	}
+	stack = tmp_s;
 	if (len % 2 != 0)
 		tmp = tmp->next;
-	tmp_s = *stack;
 	/* check if second part of list is same as stack*/
 	while (tmp != NULL)
 	{
 		if (tmp_s->n != tmp->n)
 		{
-			free_listint(*stack);
+			free_listint(stack);
 			return (0);
 		}
 		tmp = tmp->next;
 		tmp_s = tmp_s->next;
 	}
-	free_listint(*stack);
+	free_listint(stack);
 	return (1);
 }
