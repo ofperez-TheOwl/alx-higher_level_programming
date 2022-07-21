@@ -22,12 +22,15 @@ void print_python_bytes(PyObject *p)
 		/* find and print size and string */
 	len = ((PyVarObject *)p)->ob_size;
 	str = ((PyBytesObject *)p)->ob_sval;
+	printf("  size: %ld\n", len);
+	printf("  trying string: %s\n", str);
 		/* find and print the first X bytes (max 10) */
 	if (len >= 10)
-		printf("  first 10 bytes:");
+		len = 10;
 	else
-		printf("  first %ld bytes:", len + 1);
-	for (i = 0; str[i] != '\0' && i < 10; i++)
+		len++;
+	printf("  first %ld bytes:", len);
+	for (i = 0; i < len; i++)
 		printf(" %02x", str[i]);
 	printf("\n");
 }
@@ -49,11 +52,9 @@ void print_python_list(PyObject *p)
 	{
 		/* find and print number of element in p */
 		tmp = (PyListObject *)p;
-		for (j = 0; tmp->ob_item[j] != NULL; j++)
-			;
-		/* j = PyList_Size(p); */
+		j = ((PyVarObject *)p)->ob_size;
 		k = tmp->allocated;
-		printf("[*] Python list info = %ld\n", j);
+		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %ld\n", j);
 		printf("[*] Allocated  = %ld\n", k);
 		if (j == 0)
