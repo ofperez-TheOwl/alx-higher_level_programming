@@ -7,7 +7,7 @@
  *
  * Return: nothing
  *
- * Description: Doesn't use these macro/function PyBytes_AS_STRING, PyBytes_GET_SIZE
+ * Description: Doesn't use these macro/function pPyBytes_AS_STRING, pPyBytes_GET_SIZE
  * TheOwl
  */
 void print_python_bytes(PyObject *p)
@@ -40,7 +40,7 @@ void print_python_bytes(PyObject *p)
  *
  * Return: nothing
  *
- * Description: Doesn't use these macro/function Py_SIZE, Py_TYPE, PyList_GetItem
+ * Description: Doesn't use these macro/function pPy_SIZE, pPy_TYPE, pPyList_GetItem
  * TheOwl
  */
 void print_python_list(PyObject *p)
