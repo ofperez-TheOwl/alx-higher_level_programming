@@ -56,9 +56,9 @@ void print_python_list(PyObject *p)
 		k = tmp->allocated;
 		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %ld\n", j);
-		printf("[*] Allocated  = %ld\n", k);
+		printf("[*] Allocated = %ld\n", k);
 		if (j == 0)
-			printf("Element 0: 0\n");
+			return;
 		else
 		/* print the type of each element of the p */
 			while (i < j)
