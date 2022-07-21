@@ -14,7 +14,7 @@ void print_python_bytes(PyObject *p)
 	char *str;
 
 	printf("[.] bytes object info\n");
-	if (!(strcmp(p->ob_type->tp_name, "bytes"))) /* check if p is a bytes object */
+	if (!PyBytes_Check(p)) /* check if p is a bytes object */
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
