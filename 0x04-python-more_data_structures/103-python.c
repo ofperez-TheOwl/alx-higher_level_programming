@@ -6,8 +6,6 @@
  * @p: pointer to PyObject; the bytes object
  *
  * Return: nothing
- *
- * Description: Doesn't use these macro/function pyBytes_AS_STRING, pyBytes_GET_SIZE
  * TheOwl
  */
 void print_python_bytes(PyObject *p)
@@ -39,8 +37,6 @@ void print_python_bytes(PyObject *p)
  * @p: pointer to PyObject; the list object
  *
  * Return: nothing
- *
- * Description: Doesn't use these macro/function py_SIZE, py_TYPE, pPyList_GetItem
  * TheOwl
  */
 void print_python_list(PyObject *p)
