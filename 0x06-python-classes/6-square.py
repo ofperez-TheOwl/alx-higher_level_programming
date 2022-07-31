@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-Module 5-square
-Defines class Square with private size, position and public area
+Module 6-square
+Defines class Square with private size and position but public area
 Can access and update size
-Can print Square with '#' as unit
+Can print Square with '#' as unit starting at position
+
+TheOwl
 """
 
 
@@ -13,9 +15,11 @@ class Square:
         size (int): size of a side in square
 
     Functions:
-        __init__(self, size, position)
+        __init__(self, size)
         size(self)
         size(self, value)
+        position(self)
+        position(self, value)
         area(self)
         my_print(self)
     """
@@ -23,10 +27,11 @@ class Square:
         """Initialization of the size of square
 
         Args:
-            size (int): Size of Square object provide by user
+            size (int): Size of Square object provided by user
+            position (tuple): coordinates of square object provided by user
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -39,7 +44,7 @@ class Square:
         """Setter of square size
 
         Args:
-            value (int): value of square provide by user
+            value (int): value of square provided by user
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
@@ -59,11 +64,11 @@ class Square:
         """Setter of square position
 
         Args:
-            value (tuple): value of square postion provide by user
+            value (tuple): coordinates of square provided by user
         """
-        if type(value) != tuple or len(value) != 2 or \
-                type(value[0]) != int or type(value[1]) != int \
-                or value[0] < 0 or value[1] < 0:
+        if (type(value) != tuple or len(value) != 2
+                or type(value[0]) != int or type(value[1]) != int
+                or value[0] < 0 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
@@ -74,13 +79,14 @@ class Square:
                 area
         """
         return (self.__size**2)
+
     def my_print(self):
         """Prints Square image with '#'
         """
         if self.__size == 0:
             print()
         else:
+            if self.position[1] > 0:
+                print(self.__position[1] * "\n", end="")
             for i in range(self.__size):
-                print("\n" * self.__position[1], end="")
-                print(self.__position[0] * " ", self.__size * "#",end='')
-                print()
+                print(self.position[0] * ' ' + self.__size * "#")

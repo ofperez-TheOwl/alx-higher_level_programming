@@ -53,6 +53,7 @@ class Square:
                 area
         """
         return (self.__size**2)
+
     def my_print(self):
         """Prints Square image with '#'
         """
