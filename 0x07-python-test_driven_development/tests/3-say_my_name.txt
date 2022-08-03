@@ -1,0 +1,51 @@
+Module 3-say_my_name
+====================
+
+Using say_my_name
+_________________
+
+
+Let's import say_my_name
+>>> namer = __import__("3-say_my_name").say_my_name
+
+Set data for tests
+>>> name_1 = ("Eragon" , "Bromson the Shadow slayer")
+>>> name_2 = (12, "Arya")
+>>> name_3 = ("Saphira", ["first dragon"])
+
+Let's test it
+
+1st test : right inputs
+>>> namer(name_1[0], name_1[1])
+My name is Eragon Bromson the Shadow slayer
+
+2nd test : both arguments are None
+>>> namer(None, None)
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+3rd test : first_name is not str
+>>> namer(name_2[0], name_2[1])
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+4th test : last_name is not str
+>>> namer(name_3[0], name_3[1])
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+5th test : only one argument that is a str
+>>> namer("Galbatorix")
+My name is Galbatorix 
+
+6th test : only one argument that is not a str
+>>> namer(23.45)
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+End
+/*TheOwl*/
