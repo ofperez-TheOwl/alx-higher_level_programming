@@ -1,0 +1,50 @@
+Module 4-print_square
+====================
+
+Using print_square
+_________________
+
+
+Let's import print_square
+>>> print_square = __import__("4-print_square").print_square
+
+Set data for tests
+>>> size_0 = 00
+>>> size_1 = 5
+>>> size_2 = -25
+>>> size_3 = 0.9
+>>> size_4 = (23, 23)
+
+Let's test it
+
+0th test : size i 0
+>>> print_square(size_0)
+
+1st test : right inputs
+>>> print_square(size_1)
+#####
+#####
+#####
+#####
+#####
+
+2nd test : negative number
+>>> print_square(size_2)
+Traceback (most recent call last):
+	...
+ValueError: size must be >= 0
+
+3rd test : size is a float
+>>> print_square(size_3)
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+
+4th test : last_name is not str
+>>> print_square(size_4)
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+
+End
+/*TheOwl*/

@@ -1,0 +1,86 @@
+Module 5-text_indentation
+====================
+
+Using text_indentation
+_________________
+
+
+Let's import text_indentation
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Set data for tests
+>>> text_0 = ""
+>>> text_1 = "The lion of the tribe of Juda. He is the son of God. How can he e the son of God and be God hiself ?   En vérité, en vérité je vous le dis:Je ne boierai plus du fruit de la vigne avant d'en boir de nouveau dans le royaume de mon père."
+>>> text_2 = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+beatiorem! Iam ruinas videres"""
+>>> text_3 = 0.9
+>>> text_4 = (23, 23)
+
+Let's test it
+
+0th test : null text
+>>> text_indentation(text_0)
+
+1st test : short text with space
+>>> text_indentation(text_1) | cat -e
+The lion of the tribe of Juda.$
+$
+He is the son of God.$
+$
+How can he e the son of God and be God hiself ?$
+$
+En vérité, en vérité je vous le dis:$
+$
+Je ne boierai plus du fruit de la vigne avant d'en boir de nouveau dans le royaume de mon père.
+
+2nd test : long text
+>>> text_indentation(text_2) | cat -e
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.$
+$
+Quonam modo?$
+$
+Utrum igitur tibi litteram videor an totas paginas commovere?$
+$
+Non autem hoc:$
+$
+igitur ne illud quidem.$
+$
+Fortasse id optimum, sed ubi illud:$
+$
+Plus semper voluptatis?$
+$
+Teneo, inquit, finem illi videri nihil dolere.$
+$
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.$
+$
+Si id dicis, vicimus.$
+$
+Inde sermone vario sex illa a Dipylo stadia confecimus.$
+$
+Sin aliud quid voles, postea.$
+$
+Quae animi affectio suum cuique tribuens atque hanc, quam dico.$
+$
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+3rd test : text is float
+>>> text_indentation(text_3)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+4th test : last_name is not str
+>>> text_indentation(text_4)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+End
+/*TheOwl*/
