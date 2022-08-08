@@ -12,7 +12,7 @@ def text_indentation(text):
     i = 0
     while (i < j):
         if (text[i] in [".", "?", ":"]):
-            print(text[i], "\n")
+            print(text[i], "\n", sep="")
             if (i + 1 < j and text[i + 1] == " "):
                 while (text[i + 1] == " " and i + 1 < j):
                     i += 1
