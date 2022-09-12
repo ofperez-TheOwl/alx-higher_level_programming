@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module : 0-select_states
 lists all states from the given database
-Usage: .:/0-select_states <username> <password> <database_name>
+Usage: ./0-select_states <username> <password> <database_name>
 """
 
 
