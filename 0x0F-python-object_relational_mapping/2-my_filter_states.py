@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module : 2-my_filter_states
 lists all states from the given database which names respect given patterns
-Usage: ./0-select_states <username> <password> <database_name> <pattern>
+Usage: ./<file.py> <username> <password> <database_name> <pattern>
 """
 
 

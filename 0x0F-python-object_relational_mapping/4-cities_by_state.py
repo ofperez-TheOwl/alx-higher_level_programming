@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module : 4-cities_by_states
 lists all states from the given database
-Usage: ./0-select_states <username> <password> <database_name>
+Usage: ./<file.py> <username> <password> <database_name>
 """
 
 
