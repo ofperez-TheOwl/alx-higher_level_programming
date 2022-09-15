@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Links a class State to a table in database 
+Links a class State to a table in database
 """
 import sys
 from model_state import Base, State

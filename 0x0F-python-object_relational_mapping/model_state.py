@@ -9,6 +9,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     """Definition of a State class that inherits from SQLAlchemy's
     declarative_base. So it's mapped to a MySQL table that's named `states`
