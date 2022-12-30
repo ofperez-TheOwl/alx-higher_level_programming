@@ -11,4 +11,4 @@
 * Usage : `cat [filename] | mysql -h localhost -u root -p [database]`
 
 ### 	**Author**
-***Peres OF***
+***Perez OF***
